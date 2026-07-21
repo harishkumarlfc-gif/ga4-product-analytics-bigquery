@@ -1,0 +1,55 @@
+# High Revenue Low Volume Products
+
+## Business Question
+
+Which products generate high revenue while selling relatively few units?
+
+---
+
+## Business Importance
+
+These products often represent premium offerings that contribute significant revenue without requiring high sales volumes.
+
+---
+
+## Grain
+
+Product Level
+
+---
+
+## KPIs
+
+- Total Revenue
+- Units Sold
+- Revenue per Unit
+
+---
+
+## SQL Approach
+
+Aggregated revenue and quantity at the product level and calculated revenue generated per unit sold.
+
+---
+
+## Output
+
+(Add Screenshot)
+
+---
+
+## Business Insights
+
+(To be completed after analysing the results.)
+
+---
+
+## Product Manager Takeaway
+
+High revenue per unit products should be monitored carefully, kept in stock, and considered for premium merchandising strategies.
+
+---
+
+## Interview Discussion
+
+Revenue alone cannot identify premium products. Combining revenue with units sold provides a clearer view of product value and pricing position.

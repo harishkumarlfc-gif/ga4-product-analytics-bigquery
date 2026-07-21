@@ -1,0 +1,55 @@
+# Pareto Analysis (80/20 Rule)
+
+## Business Question
+
+Do a small percentage of products contribute the majority of business revenue?
+
+---
+
+## Business Importance
+
+Pareto Analysis helps businesses identify high-impact products and prioritize inventory, marketing, and merchandising efforts.
+
+---
+
+## Grain
+
+Product Level
+
+---
+
+## KPIs
+
+- Product Revenue
+- Revenue Contribution %
+- Cumulative Revenue %
+
+---
+
+## SQL Approach
+
+Calculated product revenue, revenue contribution, and cumulative revenue using window functions.
+
+---
+
+## Output
+
+(Add Screenshot)
+
+---
+
+## Business Insights
+
+(To be completed after analysing the results.)
+
+---
+
+## Product Manager Takeaway
+
+Products contributing to the first 80% of cumulative revenue should receive priority in inventory planning, promotional campaigns, and strategic decision-making.
+
+---
+
+## Interview Discussion
+
+This analysis combines aggregation with cumulative window functions to identify revenue concentration across the product catalog.

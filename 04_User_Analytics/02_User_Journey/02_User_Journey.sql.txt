@@ -1,0 +1,47 @@
+SELECT
+
+event_name AS journey_stage,
+
+COUNT(DISTINCT user_pseudo_id) AS users
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+
+WHERE event_name IN (
+
+'view_item_list',
+'select_item',
+'view_item',
+'add_to_cart',
+'view_cart',
+'begin_checkout',
+'add_shipping_info',
+'add_payment_info',
+'purchase'
+
+)
+
+AND (
+event_name != 'purchase'
+OR (
+ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id != '(not set)'
+)
+)
+
+GROUP BY journey_stage
+
+ORDER BY
+
+CASE journey_stage
+
+WHEN 'view_item_list' THEN 1
+WHEN 'select_item' THEN 2
+WHEN 'view_item' THEN 3
+WHEN 'add_to_cart' THEN 4
+WHEN 'view_cart' THEN 5
+WHEN 'begin_checkout' THEN 6
+WHEN 'add_shipping_info' THEN 7
+WHEN 'add_payment_info' THEN 8
+WHEN 'purchase' THEN 9
+
+END;

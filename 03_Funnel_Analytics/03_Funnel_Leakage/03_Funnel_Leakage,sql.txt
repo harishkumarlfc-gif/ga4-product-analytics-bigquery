@@ -1,0 +1,53 @@
+WITH funnel AS (
+
+SELECT
+'View Item' AS stage,
+1 AS stage_order,
+COUNT(DISTINCT user_pseudo_id) AS users
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+WHERE event_name='view_item'
+
+UNION ALL
+
+SELECT
+'Add to Cart',
+2,
+COUNT(DISTINCT user_pseudo_id)
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+WHERE event_name='add_to_cart'
+
+UNION ALL
+
+SELECT
+'Begin Checkout',
+3,
+COUNT(DISTINCT user_pseudo_id)
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+WHERE event_name='begin_checkout'
+
+UNION ALL
+
+SELECT
+'Purchase',
+4,
+COUNT(DISTINCT user_pseudo_id)
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+WHERE event_name='purchase'
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+
+)
+
+SELECT
+    stage,
+    users,
+    LAG(users) OVER(ORDER BY stage_order)-users AS users_lost,
+    ROUND(
+        SAFE_DIVIDE(
+            LAG(users) OVER(ORDER BY stage_order)-users,
+            LAG(users) OVER(ORDER BY stage_order)
+        )*100,
+        2
+    ) AS drop_off_percentage
+FROM funnel
+ORDER BY stage_order;

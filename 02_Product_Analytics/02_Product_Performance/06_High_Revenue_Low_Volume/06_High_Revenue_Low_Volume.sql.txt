@@ -1,0 +1,44 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+product_summary AS (
+
+SELECT
+
+    item_id,
+
+    ANY_VALUE(item_name) AS item_name,
+
+    SUM(quantity) AS units_sold,
+
+    ROUND(SUM(item_revenue),2) AS total_revenue
+
+FROM product_master
+
+GROUP BY item_id
+
+)
+
+SELECT
+
+    item_id,
+    item_name,
+    units_sold,
+    total_revenue,
+
+    ROUND(
+        SAFE_DIVIDE(total_revenue, units_sold),
+        2
+    ) AS revenue_per_unit
+
+FROM product_summary
+
+ORDER BY
+
+    revenue_per_unit DESC,
+    total_revenue DESC
+
+LIMIT 20;

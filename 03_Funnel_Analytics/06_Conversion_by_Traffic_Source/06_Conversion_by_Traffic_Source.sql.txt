@@ -1,0 +1,42 @@
+WITH source_funnel AS (
+
+SELECT
+
+COALESCE(traffic_source.source,'Direct') AS traffic_source,
+
+COUNT(DISTINCT CASE
+WHEN event_name='view_item'
+THEN user_pseudo_id
+END) AS view_users,
+
+COUNT(DISTINCT CASE
+WHEN event_name='purchase'
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+THEN user_pseudo_id
+END) AS purchase_users
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+
+WHERE event_name IN ('view_item','purchase')
+
+GROUP BY traffic_source
+
+)
+
+SELECT
+
+traffic_source,
+
+view_users,
+
+purchase_users,
+
+ROUND(
+SAFE_DIVIDE(purchase_users,view_users)*100,
+2
+) AS conversion_rate
+
+FROM source_funnel
+
+ORDER BY conversion_rate DESC;

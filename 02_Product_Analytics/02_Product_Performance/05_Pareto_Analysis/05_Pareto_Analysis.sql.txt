@@ -1,0 +1,61 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+product_revenue AS (
+
+SELECT
+
+    item_id,
+    item_name,
+
+    ROUND(SUM(item_revenue),2) AS total_revenue
+
+FROM product_master
+
+GROUP BY
+    item_id,
+    item_name
+
+)
+
+SELECT
+
+    item_id,
+    item_name,
+
+    total_revenue,
+
+    ROUND(
+        total_revenue /
+        SUM(total_revenue) OVER() *100,
+        2
+    ) AS revenue_pct,
+
+    ROUND(
+
+        SUM(total_revenue) OVER(
+
+            ORDER BY total_revenue DESC
+
+            ROWS BETWEEN UNBOUNDED PRECEDING
+            AND CURRENT ROW
+
+        )
+
+        /
+
+        SUM(total_revenue) OVER()
+
+        *100,
+
+        2
+
+    ) AS cumulative_revenue_pct
+
+FROM product_revenue
+
+ORDER BY
+total_revenue DESC;

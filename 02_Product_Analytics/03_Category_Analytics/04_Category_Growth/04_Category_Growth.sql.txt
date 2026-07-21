@@ -1,0 +1,107 @@
+WITH product_master AS (
+
+SELECT *
+FROM (
+
+SELECT
+
+    event_date,
+    event_timestamp,
+    user_pseudo_id,
+    ecommerce.transaction_id,
+
+    (
+      SELECT ANY_VALUE(ep.value.string_value)
+      FROM UNNEST(event_params) ep
+      WHERE ep.key='coupon'
+    ) AS coupon,
+
+    traffic_source.source,
+    traffic_source.medium,
+    device.category,
+    geo.country,
+
+    items.item_id,
+    items.item_name,
+    items.item_brand,
+    items.item_category,
+
+    items.quantity,
+    items.price,
+    items.item_revenue,
+
+    ROW_NUMBER() OVER(
+        PARTITION BY ecommerce.transaction_id, items.item_id
+        ORDER BY event_timestamp
+    ) AS rn
+
+FROM
+`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+UNNEST(items) AS items
+
+WHERE
+event_name='purchase'
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+
+)
+WHERE rn = 1
+)
+,
+
+monthly_category_revenue AS (
+
+SELECT
+
+    FORMAT_DATE('%Y-%m', PARSE_DATE('%Y%m%d', event_date)) AS month,
+
+    item_category,
+
+    ROUND(SUM(item_revenue),2) AS total_revenue
+
+FROM product_master
+
+WHERE item_category <> ''
+
+GROUP BY
+    month,
+    item_category
+
+),
+
+category_growth AS (
+
+SELECT
+    month,
+    item_category,
+    total_revenue,
+
+    LAG(total_revenue) OVER(
+        PARTITION BY item_category
+        ORDER BY month
+    ) AS previous_month_revenue
+
+FROM monthly_category_revenue
+
+)
+
+SELECT
+
+    month,
+    item_category,
+    total_revenue,
+    previous_month_revenue,
+
+    ROUND(
+        SAFE_DIVIDE(
+            total_revenue - previous_month_revenue,
+            previous_month_revenue
+        ) * 100,
+        2
+    ) AS mom_growth_pct
+
+FROM category_growth
+
+ORDER BY
+    item_category,
+    month;

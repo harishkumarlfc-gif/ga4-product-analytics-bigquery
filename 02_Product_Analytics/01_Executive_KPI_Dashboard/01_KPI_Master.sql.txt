@@ -1,0 +1,27 @@
+WITH product_master AS (
+
+--  Product Master CTE
+
+)
+
+SELECT
+
+ROUND(SUM(item_revenue),2) AS total_revenue,
+
+COUNT(DISTINCT transaction_id) AS total_orders,
+
+SUM(quantity) AS units_sold,
+
+COUNT(DISTINCT item_id) AS unique_products_sold,
+
+ROUND(
+SUM(item_revenue) /
+COUNT(DISTINCT transaction_id),2
+) AS average_order_value,
+
+ROUND(
+SUM(item_revenue) /
+SUM(quantity),2
+) AS average_selling_price
+
+FROM product_master;

@@ -1,0 +1,23 @@
+SELECT
+    items.item_name,
+
+    COUNT(DISTINCT CASE
+        WHEN event_name = 'view_item'
+        THEN user_pseudo_id
+    END) AS view_users,
+
+    COUNT(DISTINCT CASE
+        WHEN event_name = 'purchase'
+             AND ecommerce.transaction_id IS NOT NULL
+             AND ecommerce.transaction_id != '(not set)'
+        THEN user_pseudo_id
+    END) AS purchase_users
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+UNNEST(items) AS items
+
+WHERE event_name IN ('view_item', 'purchase')
+
+GROUP BY items.item_name
+
+ORDER BY view_users DESC;

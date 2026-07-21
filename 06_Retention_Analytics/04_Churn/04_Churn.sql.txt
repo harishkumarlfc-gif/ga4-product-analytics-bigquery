@@ -1,0 +1,70 @@
+WITH product_master AS (
+
+SELECT *
+
+FROM (
+
+SELECT
+
+user_pseudo_id,
+
+ecommerce.transaction_id,
+
+items.item_id,
+
+event_timestamp,
+
+ROW_NUMBER() OVER(
+PARTITION BY ecommerce.transaction_id, items.item_id
+ORDER BY event_timestamp
+) AS rn
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+UNNEST(items) AS items
+
+WHERE event_name='purchase'
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+
+)
+
+WHERE rn=1
+
+),
+
+customer_orders AS (
+
+SELECT
+
+user_pseudo_id,
+
+COUNT(DISTINCT transaction_id) AS total_orders
+
+FROM product_master
+
+GROUP BY user_pseudo_id
+
+)
+
+SELECT
+
+CASE
+
+WHEN total_orders = 1 THEN 'Churned Customer'
+ELSE 'Retained Customer'
+
+END AS customer_status,
+
+COUNT(*) AS customers,
+
+ROUND(
+COUNT(*) * 100.0 /
+SUM(COUNT(*)) OVER(),
+2
+) AS customer_percentage
+
+FROM customer_orders
+
+GROUP BY customer_status
+
+ORDER BY customers DESC;

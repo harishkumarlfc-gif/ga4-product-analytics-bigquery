@@ -1,0 +1,29 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+order_summary AS (
+
+SELECT
+
+    transaction_id,
+
+    ROUND(SUM(item_revenue),2) AS order_revenue
+
+FROM product_master
+
+GROUP BY transaction_id
+
+)
+
+SELECT
+
+    COUNT(*) AS total_orders,
+
+    ROUND(SUM(order_revenue),2) AS total_revenue,
+
+    ROUND(AVG(order_revenue),2) AS average_basket_size
+
+FROM order_summary;

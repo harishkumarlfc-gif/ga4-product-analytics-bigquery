@@ -1,0 +1,56 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+product_price AS (
+
+SELECT
+
+    item_id,
+    ANY_VALUE(item_name) AS item_name,
+    AVG(price) AS avg_price
+
+FROM product_master
+
+GROUP BY item_id
+
+),
+
+pricing_segment AS (
+
+SELECT
+
+    item_id,
+
+    CASE
+
+        WHEN avg_price < 25 THEN 'Budget'
+        ELSE 'Premium'
+
+    END AS pricing_segment
+
+FROM product_price
+
+)
+
+SELECT
+
+    ps.pricing_segment,
+
+    COUNT(DISTINCT ps.item_id) AS unique_products,
+
+    SUM(pm.quantity) AS units_sold,
+
+    ROUND(SUM(pm.item_revenue),2) AS total_revenue,
+
+    ROUND(AVG(pm.price),2) AS average_selling_price
+
+FROM pricing_segment ps
+
+JOIN product_master pm
+
+ON ps.item_id = pm.item_id
+
+GROUP BY pricing_segment;

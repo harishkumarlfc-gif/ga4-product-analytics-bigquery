@@ -1,0 +1,21 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+)
+
+SELECT
+
+    item_category,
+
+    COUNT(DISTINCT item_id) AS unique_products,
+
+    SUM(quantity) AS units_sold,
+
+    ROUND(SUM(item_revenue),2) AS total_revenue
+
+FROM product_master
+
+GROUP BY item_category
+
+ORDER BY total_revenue DESC;

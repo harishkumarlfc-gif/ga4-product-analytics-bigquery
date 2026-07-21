@@ -1,0 +1,65 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+product_price AS (
+
+SELECT
+
+    item_id,
+    ANY_VALUE(item_name) AS item_name,
+    AVG(price) AS avg_price
+
+FROM product_master
+
+GROUP BY item_id
+
+),
+
+price_bucket AS (
+
+SELECT
+
+    item_id,
+
+    CASE
+        WHEN avg_price < 10 THEN 'Under $10'
+        WHEN avg_price BETWEEN 10 AND 24.99 THEN '$10 - $24.99'
+        WHEN avg_price BETWEEN 25 AND 49.99 THEN '$25 - $49.99'
+        ELSE '$50+'
+    END AS price_bucket
+
+FROM product_price
+
+)
+
+SELECT
+
+    pb.price_bucket,
+
+    COUNT(DISTINCT pb.item_id) AS unique_products,
+
+    SUM(pm.quantity) AS units_sold,
+
+    ROUND(SUM(pm.item_revenue),2) AS total_revenue
+
+FROM price_bucket pb
+
+JOIN product_master pm
+
+ON pb.item_id = pm.item_id
+
+GROUP BY pb.price_bucket
+
+ORDER BY
+
+CASE
+
+    WHEN pb.price_bucket='Under $10' THEN 1
+    WHEN pb.price_bucket='$10 - $24.99' THEN 2
+    WHEN pb.price_bucket='$25 - $49.99' THEN 3
+    ELSE 4
+
+END;

@@ -1,0 +1,40 @@
+WITH customer_clv AS (
+
+SELECT
+
+user_pseudo_id,
+
+COUNT(DISTINCT ecommerce.transaction_id) AS total_orders,
+
+ROUND(SUM(items.item_revenue),2) AS lifetime_revenue,
+
+ROUND(AVG(items.item_revenue),2) AS average_order_value
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+
+UNNEST(items) AS items
+
+WHERE event_name='purchase'
+
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+
+GROUP BY user_pseudo_id
+
+)
+
+SELECT
+
+user_pseudo_id,
+
+total_orders,
+
+lifetime_revenue,
+
+average_order_value
+
+FROM customer_clv
+
+ORDER BY lifetime_revenue DESC
+
+LIMIT 20;

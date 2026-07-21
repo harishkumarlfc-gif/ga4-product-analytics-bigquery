@@ -1,0 +1,127 @@
+WITH product_master AS (
+
+SELECT *
+
+FROM (
+
+SELECT
+
+user_pseudo_id,
+
+PARSE_DATE('%Y%m%d', event_date) AS order_date,
+
+ecommerce.transaction_id,
+
+items.item_id,
+
+event_timestamp,
+
+ROW_NUMBER() OVER(
+PARTITION BY ecommerce.transaction_id, items.item_id
+ORDER BY event_timestamp
+) AS rn
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+UNNEST(items) AS items
+
+WHERE event_name='purchase'
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+
+)
+
+WHERE rn=1
+
+),
+
+first_purchase AS (
+
+SELECT
+
+user_pseudo_id,
+
+DATE_TRUNC(MIN(order_date), MONTH) AS cohort_month
+
+FROM product_master
+
+GROUP BY user_pseudo_id
+
+),
+
+customer_purchases AS (
+
+SELECT DISTINCT
+
+user_pseudo_id,
+
+DATE_TRUNC(order_date, MONTH) AS purchase_month
+
+FROM product_master
+
+),
+
+cohort_data AS (
+
+SELECT
+
+fp.cohort_month,
+
+cp.purchase_month,
+
+DATE_DIFF(cp.purchase_month, fp.cohort_month, MONTH) AS month_number,
+
+COUNT(DISTINCT cp.user_pseudo_id) AS customers
+
+FROM first_purchase fp
+
+JOIN customer_purchases cp
+
+ON fp.user_pseudo_id = cp.user_pseudo_id
+
+GROUP BY
+fp.cohort_month,
+cp.purchase_month,
+month_number
+
+),
+
+cohort_size AS (
+
+SELECT
+
+cohort_month,
+
+customers AS cohort_size
+
+FROM cohort_data
+
+WHERE month_number = 0
+
+)
+
+SELECT
+
+cd.cohort_month,
+
+cd.purchase_month,
+
+cd.month_number,
+
+cs.cohort_size,
+
+cd.customers AS retained_customers,
+
+ROUND(
+SAFE_DIVIDE(cd.customers, cs.cohort_size) * 100,
+2
+) AS retention_rate
+
+FROM cohort_data cd
+
+JOIN cohort_size cs
+
+ON cd.cohort_month = cs.cohort_month
+
+ORDER BY
+cd.cohort_month,
+cd.month_number;

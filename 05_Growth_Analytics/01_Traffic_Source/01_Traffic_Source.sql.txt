@@ -1,0 +1,21 @@
+SELECT
+
+COALESCE(traffic_source.source,'Direct') AS traffic_source,
+
+COUNT(DISTINCT ecommerce.transaction_id) AS orders,
+
+ROUND(SUM(items.item_revenue),2) AS revenue,
+
+COUNT(DISTINCT user_pseudo_id) AS buyers
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+UNNEST(items) AS items
+
+WHERE event_name='purchase'
+
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+
+GROUP BY traffic_source
+
+ORDER BY revenue DESC;

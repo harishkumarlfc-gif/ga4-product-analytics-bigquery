@@ -1,0 +1,65 @@
+WITH product_master AS (
+
+SELECT *
+
+FROM (
+
+SELECT
+
+user_pseudo_id,
+
+geo.country,
+
+ecommerce.transaction_id AS transaction_id,
+
+items.item_id,
+
+items.item_revenue,
+
+event_timestamp,
+
+ROW_NUMBER() OVER(
+
+PARTITION BY
+ecommerce.transaction_id,
+items.item_id
+
+ORDER BY event_timestamp
+
+) AS rn
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+UNNEST(items) AS items
+
+WHERE event_name='purchase'
+
+AND ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+
+)
+
+WHERE rn=1
+
+)
+
+SELECT
+
+country,
+
+COUNT(DISTINCT transaction_id) AS orders,
+
+ROUND(SUM(item_revenue),2) AS revenue,
+
+COUNT(DISTINCT user_pseudo_id) AS buyers,
+
+ROUND(
+SUM(item_revenue) /
+SUM(SUM(item_revenue)) OVER() * 100,
+2
+) AS revenue_contribution
+
+FROM product_master
+
+GROUP BY country
+
+ORDER BY revenue DESC;

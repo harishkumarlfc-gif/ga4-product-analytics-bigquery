@@ -1,0 +1,35 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+category_revenue AS (
+
+SELECT
+
+    item_category,
+
+    ROUND(SUM(item_revenue),2) AS total_revenue
+
+FROM product_master
+
+GROUP BY item_category
+
+)
+
+SELECT
+
+    item_category,
+
+    total_revenue,
+
+    ROUND(
+        total_revenue * 100 /
+        SUM(total_revenue) OVER (),
+        2
+    ) AS revenue_contribution_pct
+
+FROM category_revenue
+
+ORDER BY total_revenue DESC;

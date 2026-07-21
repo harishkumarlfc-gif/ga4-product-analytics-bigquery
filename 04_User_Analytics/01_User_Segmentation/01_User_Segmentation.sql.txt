@@ -1,0 +1,34 @@
+WITH users AS (
+
+SELECT
+    user_pseudo_id,
+
+    MAX(
+        CASE
+            WHEN event_name = 'purchase'
+            AND ecommerce.transaction_id IS NOT NULL
+            AND ecommerce.transaction_id != '(not set)'
+            THEN 1
+            ELSE 0
+        END
+    ) AS is_buyer
+
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+
+GROUP BY user_pseudo_id
+
+)
+
+SELECT
+    CASE
+        WHEN is_buyer = 1 THEN 'Buyer'
+        ELSE 'Non-Buyer'
+    END AS user_type,
+
+    COUNT(*) AS users
+
+FROM users
+
+GROUP BY user_type
+
+ORDER BY users DESC;

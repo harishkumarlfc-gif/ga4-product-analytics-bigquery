@@ -1,0 +1,29 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+order_products AS (
+
+SELECT
+
+    transaction_id,
+
+    COUNT(DISTINCT item_id) AS unique_products_per_order
+
+FROM product_master
+
+GROUP BY transaction_id
+
+)
+
+SELECT
+
+    COUNT(*) AS total_orders,
+
+    SUM(unique_products_per_order) AS total_unique_products,
+
+    ROUND(AVG(unique_products_per_order),2) AS avg_unique_products_per_order
+
+FROM order_products;

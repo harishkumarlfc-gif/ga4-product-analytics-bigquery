@@ -1,0 +1,25 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+)
+
+SELECT
+
+    item_id,
+    item_name,
+
+    SUM(quantity) AS units_sold,
+
+    ROUND(SUM(item_revenue),2) AS total_revenue
+
+FROM product_master
+
+GROUP BY
+    item_id,
+    item_name
+
+ORDER BY
+    total_revenue DESC
+
+LIMIT 10;

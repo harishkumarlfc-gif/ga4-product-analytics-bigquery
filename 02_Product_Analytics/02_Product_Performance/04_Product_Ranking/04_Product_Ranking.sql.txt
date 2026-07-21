@@ -1,0 +1,44 @@
+WITH product_master AS (
+
+-- Product Master CTE
+
+),
+
+product_revenue AS (
+
+SELECT
+
+    item_id,
+    item_name,
+
+    ROUND(SUM(item_revenue),2) AS total_revenue
+
+FROM product_master
+
+GROUP BY
+    item_id,
+    item_name
+
+)
+
+SELECT
+
+    item_id,
+    item_name,
+    total_revenue,
+
+    ROW_NUMBER() OVER(
+        ORDER BY total_revenue DESC
+    ) AS row_number,
+
+    RANK() OVER(
+        ORDER BY total_revenue DESC
+    ) AS rank,
+
+    DENSE_RANK() OVER(
+        ORDER BY total_revenue DESC
+    ) AS dense_rank
+
+FROM product_revenue
+
+ORDER BY total_revenue DESC;
