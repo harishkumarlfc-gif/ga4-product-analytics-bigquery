@@ -1,0 +1,59 @@
+month,item_category,total_revenue,previous_month_revenue,mom_growth_pct
+2020-11,Accessories,3871.0,,
+2020-12,Accessories,7589.0,3871.0,96.05
+2021-01,Accessories,3824.0,7589.0,-49.61
+2020-11,Apparel,49303.0,,
+2020-12,Apparel,66175.0,49303.0,34.22
+2021-01,Apparel,29473.0,66175.0,-55.46
+2020-11,Bags,5085.0,,
+2020-12,Bags,13127.0,5085.0,158.15
+2021-01,Bags,3026.0,13127.0,-76.95
+2020-12,Black Lives Matter,58.0,,
+2020-11,Campus Collection,4729.0,,
+2020-12,Campus Collection,9815.0,4729.0,107.55
+2021-01,Campus Collection,2170.0,9815.0,-77.89
+2020-11,Clearance,3065.0,,
+2020-12,Clearance,5766.0,3065.0,88.12
+2021-01,Clearance,1274.0,5766.0,-77.9
+2020-11,Drinkware,3854.0,,
+2020-12,Drinkware,7812.0,3854.0,102.7
+2021-01,Drinkware,1773.0,7812.0,-77.3
+2020-11,Electronics Accessories,124.0,,
+2020-12,Electronics Accessories,174.0,124.0,40.32
+2021-01,Electronics Accessories,158.0,174.0,-9.2
+2020-11,Fun,183.0,,
+2020-12,Fun,10.0,183.0,-94.54
+2021-01,Fun,20.0,10.0,100.0
+2020-11,Gift Cards,50.0,,
+2020-12,Gift Cards,300.0,50.0,500.0
+2021-01,Gift Cards,100.0,300.0,-66.67
+2020-11,Google,939.0,,
+2020-12,Google,1594.0,939.0,69.76
+2021-01,Google,386.0,1594.0,-75.78
+2020-11,Lifestyle,3296.0,,
+2020-12,Lifestyle,5418.0,3296.0,64.38
+2021-01,Lifestyle,2540.0,5418.0,-53.12
+2020-11,New,5669.0,,
+2020-12,New,13521.0,5669.0,138.51
+2021-01,New,2871.0,13521.0,-78.77
+2020-11,Notebooks & Journals,178.0,,
+2020-12,Notebooks & Journals,27.0,178.0,-84.83
+2021-01,Notebooks & Journals,423.0,27.0,1466.67
+2020-11,Office,2319.0,,
+2020-12,Office,3808.0,2319.0,64.21
+2021-01,Office,1292.0,3808.0,-66.07
+2020-11,Shop by Brand,3359.0,,
+2020-12,Shop by Brand,8837.0,3359.0,163.08
+2021-01,Shop by Brand,2538.0,8837.0,-71.28
+2020-11,Small Goods,324.0,,
+2020-12,Small Goods,851.0,324.0,162.65
+2021-01,Small Goods,388.0,851.0,-54.41
+2020-11,Stationery,318.0,,
+2020-12,Stationery,689.0,318.0,116.67
+2021-01,Stationery,329.0,689.0,-52.25
+2020-11,Uncategorized Items,4630.0,,
+2020-12,Uncategorized Items,8082.0,4630.0,74.56
+2021-01,Uncategorized Items,1925.0,8082.0,-76.18
+2020-11,Writing Instruments,159.0,,
+2020-12,Writing Instruments,401.0,159.0,152.2
+2021-01,Writing Instruments,222.0,401.0,-44.64
