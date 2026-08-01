@@ -1,0 +1,272 @@
+# 🧪 Experiment Ideas
+
+## Overview
+
+Product Analytics identifies opportunities, but experiments determine whether proposed solutions create measurable business value.
+
+Rather than implementing changes based on assumptions, Product teams validate ideas through controlled experiments.
+
+Each experiment in this project follows the same structure:
+
+```
+
+Observation
+
+↓
+
+Hypothesis
+
+↓
+
+Experiment
+
+↓
+
+Primary Metric
+
+↓
+
+Guardrail Metrics
+
+↓
+
+Expected Business Impact
+
+```
+
+The experiments below are derived from insights generated throughout the Product Analytics dashboard.
+
+---
+
+# Experiment 1 — Simplify Checkout Experience
+
+## Observation
+
+- Checkout → Purchase Conversion: **38.2%**
+- Checkout Abandonment: **61.8%**
+
+Users reaching checkout have already demonstrated strong purchase intent, making this stage a high-impact optimization opportunity.
+
+---
+
+## Hypothesis
+
+Reducing friction during checkout may increase the percentage of users completing their purchases.
+
+---
+
+## Experiment
+
+A/B test a simplified checkout experience.
+
+Possible improvements:
+
+- Fewer checkout steps
+- Simplified forms
+- Improved mobile checkout
+- Faster payment flow
+
+---
+
+## Success Metrics
+
+### Primary Metric
+
+- Checkout → Purchase Conversion Rate
+
+### Guardrail Metrics
+
+- Average Order Value (AOV)
+- Revenue per Visitor
+
+### Supporting Metrics
+
+- Checkout Completion Time
+- Payment Success Rate
+
+---
+
+## Expected Business Impact
+
+Higher checkout conversion increases completed orders without requiring additional customer acquisition.
+
+---
+
+# Experiment 2 — Free Shipping Threshold
+
+## Observation
+
+Average Order Value:
+
+**$68.91**
+
+Increasing AOV allows revenue to grow without increasing traffic.
+
+---
+
+## Hypothesis
+
+A free-shipping threshold slightly above the current AOV may encourage customers to add additional products before completing their purchase.
+
+---
+
+## Experiment
+
+A/B test a free-shipping threshold approximately **1.25× the current AOV**.
+
+Example:
+
+Current AOV
+
+$68.91
+
+↓
+
+Test Free Shipping Above
+
+≈ $85
+
+---
+
+## Success Metrics
+
+### Primary Metric
+
+- Average Order Value (AOV)
+
+### Guardrail Metrics
+
+- Purchase Conversion Rate
+- Contribution Margin (Production Environment)
+
+### Supporting Metrics
+
+- Products per Order
+- Average Selling Price
+- Orders Above Shipping Threshold
+
+---
+
+## Expected Business Impact
+
+Increase basket value while maintaining healthy purchase conversion.
+
+---
+
+# Experiment 3 — Improve Repeat Purchases
+
+## Observation
+
+- One-time Buyers: **88.15%**
+- Repeat Buyers: **11.85%**
+
+Customer retention represents a significant opportunity for long-term revenue growth.
+
+---
+
+## Hypothesis
+
+Providing a post-purchase incentive may encourage first-time buyers to return.
+
+---
+
+## Experiment
+
+Send a personalized email containing a limited-time discount coupon **30 days after the customer's first purchase**.
+
+---
+
+## Success Metrics
+
+### Primary Metric
+
+- Repeat Purchase Rate
+
+### Guardrail Metrics
+
+- Average Order Value
+- Discount Cost
+
+### Supporting Metrics
+
+- Email Open Rate
+- Click-through Rate
+- Revenue from Returning Customers
+
+---
+
+## Expected Business Impact
+
+Increase customer retention while improving Customer Lifetime Value (CLV).
+
+---
+
+# Experiment 4 — Apparel Cross-Sell Recommendations
+
+## Observation
+
+Dashboard analysis showed:
+
+- Apparel products generate the highest revenue.
+- Accessories such as stickers, pens, and notebooks generate high sales volume.
+
+Customers already purchase an average of **4.38 products per order**, indicating a willingness to buy multiple items in a single transaction.
+
+---
+
+## Hypothesis
+
+Recommending inexpensive accessories alongside higher-value apparel may encourage impulse purchases and increase basket value.
+
+---
+
+## Experiment
+
+Display personalized accessory recommendations during:
+
+- Product Detail Page
+- Shopping Cart
+- Checkout
+
+Examples:
+
+- Hoodie → Sticker
+- Hoodie → Pen
+- Hoodie → Notebook Set
+
+---
+
+## Success Metrics
+
+### Primary Metric
+
+- Average Order Value (AOV)
+
+### Guardrail Metrics
+
+- Checkout Conversion Rate
+- Revenue per Visitor
+
+### Supporting Metrics
+
+- Accessory Attachment Rate
+- Apparel Revenue
+- Products per Order
+
+---
+
+## Expected Business Impact
+
+Increase basket value through low-friction impulse purchases without significantly affecting checkout completion.
+
+---
+
+# Key Learnings
+
+This project highlights an important principle of Product Analytics:
+
+> Data identifies opportunities.
+
+> Experiments validate solutions.
+
+Rather than assuming why users behave a certain way, Product Analysts formulate hypotheses, define measurable success metrics, and use controlled experiments to validate product decisions before large-scale implementation.

@@ -1,0 +1,161 @@
+# 📈 KPI Tree
+
+## Overview
+
+A KPI Tree breaks down a high-level business objective into measurable drivers that influence business performance.
+
+Rather than optimizing a single metric in isolation, Product Analysts identify the underlying factors that contribute to business growth and prioritize improvements at each level.
+
+For an ecommerce business, **Revenue** is one of the most important business outcomes.
+
+Instead of treating revenue as a standalone metric, it can be decomposed into smaller, actionable drivers.
+
+---
+
+# Revenue KPI Tree
+
+```
+
+Revenue
+│
+├── Orders
+│   ├── Traffic
+│   └── Conversion Rate
+│       ├── View Item → Add to Cart
+│       ├── Add to Cart → Begin Checkout
+│       └── Begin Checkout → Purchase
+│
+└── Average Order Value (AOV)
+├── Products per Order
+└── Average Selling Price (ASP)
+
+```
+
+---
+
+# Understanding Each Driver
+
+## Revenue
+
+Revenue is the primary business outcome for this project.
+
+It can increase in two ways:
+
+- Increase the number of completed orders.
+- Increase the average value of each order.
+
+---
+
+## Orders
+
+Orders represent successful purchases.
+
+Order growth depends on two major drivers:
+
+### Traffic
+
+More qualified visitors create more purchasing opportunities.
+
+Potential initiatives:
+
+- Marketing campaigns
+- SEO
+- Paid acquisition
+- Referral programs
+
+---
+
+### Conversion Rate
+
+Not every visitor completes a purchase.
+
+Improving conversion allows the business to generate more orders without increasing traffic.
+
+The purchase funnel used in this project:
+
+```
+
+View Item
+
+↓
+
+Add to Cart
+
+↓
+
+Begin Checkout
+
+↓
+
+Purchase
+
+```
+
+Each stage provides an opportunity to identify user friction and optimize the customer journey.
+
+---
+
+## Average Order Value (AOV)
+
+Average Order Value measures the average amount spent per completed order.
+
+Increasing AOV allows revenue to grow without acquiring additional customers.
+
+AOV can be improved through two primary levers.
+
+---
+
+### Products per Order
+
+Customers purchasing multiple products increase basket value.
+
+Possible product initiatives include:
+
+- Product bundles
+- Cross-selling
+- Personalized recommendations
+- Frequently bought together suggestions
+
+---
+
+### Average Selling Price (ASP)
+
+Increasing the average value of products purchased also increases AOV.
+
+Potential initiatives include:
+
+- Premium product recommendations
+- Upselling
+- Higher-value product placement
+- Pricing strategy optimization
+
+---
+
+# Business Takeaways
+
+Based on the dashboard analysis, revenue growth can be achieved through multiple independent levers.
+
+Priority opportunities identified during this project include:
+
+- Reducing checkout abandonment to improve completed orders.
+- Increasing AOV through cross-selling and product recommendations.
+- Improving customer retention to increase repeat purchases.
+- Optimizing high-performing products to maximize revenue contribution.
+
+---
+
+# Key Learning
+
+A KPI Tree helps Product Analysts understand how individual product metrics contribute to overall business performance.
+
+Rather than asking:
+
+> "How do we increase revenue?"
+
+Product teams ask:
+
+- Which driver has the largest opportunity?
+- Which improvement is easiest to implement?
+- Which initiative is expected to create the highest business impact?
+
+Breaking business goals into measurable components enables data-driven prioritization and experimentation.

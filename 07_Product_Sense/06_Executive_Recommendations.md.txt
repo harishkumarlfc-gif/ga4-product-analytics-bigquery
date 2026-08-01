@@ -1,0 +1,250 @@
+# 📋 Executive Recommendations
+
+## Executive Summary
+
+Based on the Product Analytics dashboard and behavioral analysis of the Google Merchandise Store dataset, five high-impact business opportunities were identified.
+
+These recommendations are prioritized according to expected business impact, implementation complexity, and supporting evidence from the data.
+
+> **Note:** The recommendations below are based on observed behavioral patterns. Since the public GA4 dataset does not contain qualitative feedback or detailed checkout instrumentation, the proposed initiatives should be validated through controlled experiments before full-scale implementation.
+
+---
+
+# Business Recommendations
+
+| Priority | Recommendation | Expected Impact | Implementation |
+|----------|----------------|-----------------|----------------|
+| 🟢 High | Reduce Checkout Abandonment | High | Medium |
+| 🟢 High | Improve Customer Retention | High | Low |
+| 🟡 Medium | Cross-sell Accessories with Apparel | Medium | Low |
+| 🟡 Medium | Test Free Shipping Threshold | Medium | Medium |
+| 🟡 Medium | Personalize Product Recommendations | Medium | High |
+
+---
+
+# 1. Reduce Checkout Abandonment
+
+## Observation
+
+- Checkout → Purchase Conversion: **38.2%**
+- Checkout Abandonment: **61.8%**
+
+Customers reaching checkout have already demonstrated strong purchase intent.
+
+---
+
+## Recommendation
+
+Prioritize reducing checkout friction by improving the checkout experience.
+
+Possible improvements include:
+
+- Simplified checkout flow
+- Fewer form fields
+- Improved mobile experience
+- Faster payment experience
+
+---
+
+## Success Metrics
+
+Primary Metric
+
+- Checkout → Purchase Conversion Rate
+
+Guardrail Metrics
+
+- Average Order Value (AOV)
+- Revenue per Visitor
+
+---
+
+# 2. Improve Customer Retention
+
+## Observation
+
+- One-time Buyers: **88.15%**
+- Repeat Buyers: **11.85%**
+
+Most customers do not return after their first purchase.
+
+---
+
+## Recommendation
+
+Increase customer engagement through post-purchase retention initiatives.
+
+Possible ideas:
+
+- Personalized email campaigns
+- Limited-time discount coupons
+- Loyalty rewards
+- Product recommendations
+
+---
+
+## Success Metrics
+
+Primary Metric
+
+- Repeat Purchase Rate
+
+Guardrail Metrics
+
+- Average Order Value
+- Customer Lifetime Value (CLV)
+
+---
+
+# 3. Cross-sell Accessories with Apparel
+
+## Observation
+
+- Apparel generates the highest revenue.
+- Stickers, pens and notebooks generate high sales volume.
+- Customers purchase **4.38 products per order** on average.
+
+---
+
+## Recommendation
+
+Recommend low-cost accessories alongside higher-value apparel to encourage impulse purchases and increase basket value.
+
+Example:
+
+Google Hoodie
+
+↓
+
+Customers also bought
+
+- Sticker
+- Pen
+- Notebook
+
+---
+
+## Success Metrics
+
+Primary Metric
+
+- Average Order Value
+
+Guardrail Metrics
+
+- Checkout Conversion
+- Revenue per Visitor
+
+---
+
+# 4. Test a Free Shipping Threshold
+
+## Observation
+
+Current Average Order Value:
+
+**$68.91**
+
+---
+
+## Recommendation
+
+Experiment with a free shipping threshold approximately **1.25× the current AOV** to encourage customers to increase basket value.
+
+Suggested test threshold:
+
+**≈ $85**
+
+---
+
+## Success Metrics
+
+Primary Metric
+
+- Average Order Value
+
+Guardrail Metrics
+
+- Purchase Conversion Rate
+- Contribution Margin (Production Environment)
+
+---
+
+# 5. Personalize Product Recommendations
+
+## Observation
+
+Different product categories contribute differently to revenue and sales volume.
+
+Personalized recommendations may improve both product discovery and basket value.
+
+---
+
+## Recommendation
+
+Develop recommendation modules using customer browsing and purchasing behavior.
+
+Potential placements:
+
+- Product Detail Pages
+- Shopping Cart
+- Checkout
+- Home Page
+
+---
+
+## Success Metrics
+
+Primary Metric
+
+- Click-through Rate (CTR)
+
+Guardrail Metrics
+
+- Checkout Conversion
+- Revenue per Visitor
+
+Supporting Metrics
+
+- Recommendation Attachment Rate
+- Average Order Value
+
+---
+
+# Final Takeaways
+
+This project demonstrates how Product Analytics extends beyond dashboard creation.
+
+Rather than stopping at descriptive analytics, the analysis follows a structured decision-making process:
+
+```
+Business Problem
+        ↓
+Data Analysis
+        ↓
+Business Insight
+        ↓
+Hypothesis
+        ↓
+Experiment Design
+        ↓
+Success Metrics
+        ↓
+Business Recommendation
+```
+
+The recommendations in this document are intentionally framed as **hypotheses to be validated through experimentation**, reflecting real-world Product Analytics practices where data informs decisions, but experiments confirm them.
+
+---
+
+# Project Outcome
+
+This Product Sense analysis complements the SQL, BigQuery, and Power BI components of the project by demonstrating the ability to:
+
+- Translate data into business insights.
+- Prioritize opportunities using business impact.
+- Design measurable product experiments.
+- Define primary and guardrail metrics.
+- Communicate analytical findings to Product Managers and stakeholders.
+
+The goal is not only to answer **"What happened?"** but also **"What should we do next?"**

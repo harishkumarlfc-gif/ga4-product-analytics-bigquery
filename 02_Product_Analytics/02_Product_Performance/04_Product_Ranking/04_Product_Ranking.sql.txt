@@ -1,44 +1,83 @@
 WITH product_master AS (
 
--- Product Master CTE
+    SELECT *
+    FROM (
 
+        SELECT
+            PARSE_DATE('%Y%m%d', event_date) AS event_date,
+            event_timestamp,
+            user_pseudo_id,
+
+            ecommerce.transaction_id,
+
+            (
+                SELECT ANY_VALUE(ep.value.string_value)
+                FROM UNNEST(event_params) AS ep
+                WHERE ep.key = 'coupon'
+            ) AS coupon,
+
+            traffic_source.source,
+            traffic_source.medium,
+
+            device.category AS device_category,
+            geo.country,
+
+            items.item_id,
+            items.item_name,
+            items.item_brand,
+            items.item_category,
+
+            items.quantity,
+            items.price,
+            items.item_revenue,
+
+            ROW_NUMBER() OVER (
+                PARTITION BY ecommerce.transaction_id, items.item_id
+                ORDER BY event_timestamp
+            ) AS rn
+
+        FROM
+            `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+            UNNEST(items) AS items
+
+        WHERE
+            event_name = 'purchase'
+            AND ecommerce.transaction_id IS NOT NULL
+            AND ecommerce.transaction_id != '(not set)'
+
+    )
+
+    WHERE rn = 1
 ),
 
-product_revenue AS (
-
-SELECT
-
-    item_id,
-    item_name,
-
-    ROUND(SUM(item_revenue),2) AS total_revenue
-
-FROM product_master
-
-GROUP BY
-    item_id,
-    item_name
-
+product_level AS (
+    SELECT
+        item_name,
+        ANY_VALUE(item_category) AS item_category,
+        SUM(quantity) AS units_sold,
+        ROUND(SUM(item_revenue), 2) AS total_revenue,
+        COUNT(DISTINCT transaction_id) AS total_orders
+    FROM product_master
+    WHERE item_name IS NOT NULL
+    GROUP BY item_name
 )
-
 SELECT
-
-    item_id,
     item_name,
+    units_sold,
     total_revenue,
 
-    ROW_NUMBER() OVER(
+    ROW_NUMBER() OVER (
         ORDER BY total_revenue DESC
     ) AS row_number,
 
-    RANK() OVER(
+    RANK() OVER (
         ORDER BY total_revenue DESC
-    ) AS rank,
+    ) AS product_rank,
 
-    DENSE_RANK() OVER(
+    DENSE_RANK() OVER (
         ORDER BY total_revenue DESC
     ) AS dense_rank
 
-FROM product_revenue
+FROM product_level
 
-ORDER BY total_revenue DESC;
+ORDER BY product_rank;

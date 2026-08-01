@@ -30,25 +30,25 @@ Product Level
 
 Calculated product revenue, revenue contribution, and cumulative revenue using window functions.
 
----
 
-## Output
-
-(Add Screenshot)
 
 ---
 
-## Business Insights
+## Key Insights
 
-(To be completed after analysing the results.)
-
----
-
-## Product Manager Takeaway
-
-Products contributing to the first 80% of cumulative revenue should receive priority in inventory planning, promotional campaigns, and strategic decision-making.
+- Revenue is concentrated among a relatively small proportion of products.
+- The cumulative revenue curve demonstrates diminishing returns as lower-performing products are added.
+- Focusing business efforts on top-performing products can produce greater revenue impact than treating every product equally.
+- Pareto analysis helps prioritize merchandising, inventory management and marketing investments.
 
 ---
+
+## Business Recommendations
+
+- Prioritize inventory availability for top-performing products.
+- Allocate marketing spend towards products driving the majority of revenue.
+- Periodically review long-tail products for optimization opportunities.
+- Develop premium product recommendation strategies around high-contributing products.---
 
 ## Interview Discussion
 

@@ -1,0 +1,224 @@
+# 🔍 Root Cause Analysis (RCA)
+
+## Overview
+
+Product Analytics helps identify **where** users experience friction during their journey.
+
+However, behavioral data alone does not always explain **why** a problem occurs.
+
+Root Cause Analysis (RCA) is a structured approach used to generate hypotheses based on observed user behavior before designing experiments to validate them.
+
+Throughout this project, observations are clearly separated from hypotheses to avoid drawing unsupported conclusions.
+
+---
+
+# Root Cause Analysis Framework
+
+Every business problem is analyzed using the following framework.
+
+```
+
+Observation
+
+↓
+
+Business Impact
+
+↓
+
+Possible Hypotheses
+
+↓
+
+Additional Data Required
+
+↓
+
+Experiment
+
+↓
+
+Success Metrics
+
+```
+
+This approach helps ensure that business decisions are based on evidence rather than assumptions.
+
+---
+
+# Case 1 — Checkout Abandonment
+
+## Observation
+
+The purchase funnel showed the following user journey:
+
+| Funnel Stage | Users |
+|--------------|------:|
+| View Item | 61,252 |
+| Add to Cart | 12,545 |
+| Begin Checkout | 9,715 |
+| Purchase | 3,713 |
+
+Checkout → Purchase conversion:
+
+**38.2%**
+
+Checkout abandonment:
+
+**61.8%**
+
+---
+
+## Business Impact
+
+Users who reach the checkout stage have already demonstrated strong purchase intent.
+
+Improving conversion at this stage has the potential to increase completed orders without requiring additional traffic acquisition.
+
+---
+
+## Possible Hypotheses
+
+The available dataset does not identify the exact reason for abandonment.
+
+Possible hypotheses include:
+
+- Checkout UX friction
+- Payment failures
+- Limited payment methods
+- Delivery-related concerns
+- Unexpected shipping costs
+- Technical issues during checkout
+
+These hypotheses should be validated before implementing product changes.
+
+---
+
+## Additional Data Required
+
+To validate the hypotheses above, additional product instrumentation may include:
+
+- Payment success / failure events
+- Checkout step completion events
+- Error logs
+- Shipping option selection
+- Exit page analysis
+- Device-specific checkout performance
+- Session recordings or heatmaps
+
+---
+
+## Suggested Experiment
+
+A/B test a simplified checkout experience.
+
+Possible changes:
+
+- Reduce checkout steps.
+- Improve form usability.
+- Simplify payment flow.
+- Improve mobile checkout experience.
+
+---
+
+## Success Metrics
+
+Primary Metric
+
+- Checkout → Purchase Conversion Rate
+
+Guardrail Metrics
+
+- Average Order Value (AOV)
+- Revenue per Visitor
+
+Supporting Metrics
+
+- Checkout Completion Time
+- Payment Success Rate
+
+---
+
+# Case 2 — Low Repeat Purchase Rate
+
+## Observation
+
+Repeat purchase analysis showed:
+
+- One-time Buyers: **88.15%**
+- Repeat Buyers: **11.85%**
+
+Cohort analysis also indicated low customer retention after the first purchase.
+
+---
+
+## Business Impact
+
+Acquiring new customers is typically more expensive than retaining existing ones.
+
+Improving repeat purchases increases Customer Lifetime Value (CLV) while reducing long-term dependence on customer acquisition.
+
+---
+
+## Possible Hypotheses
+
+Potential reasons customers may not return include:
+
+- Better competing alternatives
+- Lack of purchase incentives
+- Limited customer engagement
+- Product satisfaction
+- Delivery experience
+- Users forgetting the brand over time
+
+The current dataset does not provide sufficient evidence to determine the primary cause.
+
+---
+
+## Additional Data Required
+
+Examples of useful data include:
+
+- Customer feedback
+- Product reviews
+- NPS surveys
+- Email campaign engagement
+- Loyalty program participation
+- Customer support interactions
+
+---
+
+## Suggested Experiment
+
+A/B test a personalized email campaign that sends a limited-time discount to first-time buyers 30 days after purchase.
+
+---
+
+## Success Metrics
+
+Primary Metric
+
+- Repeat Purchase Rate
+
+Guardrail Metrics
+
+- Average Order Value (AOV)
+- Discount Redemption Cost
+
+Supporting Metrics
+
+- Email Open Rate
+- Click-through Rate
+- Revenue from Returning Customers
+
+---
+
+# Key Takeaways
+
+This analysis demonstrates an important principle in Product Analytics:
+
+**Behavioral data identifies where problems occur.**
+
+**Experiments identify why they occur.**
+
+Separating observations from hypotheses helps teams avoid incorrect assumptions and prioritize data-driven product decisions.

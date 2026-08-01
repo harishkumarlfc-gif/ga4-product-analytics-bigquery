@@ -37,17 +37,22 @@ Calculated revenue for each product and used a window function to determine each
 
 ---
 
-## Business Insights
 
-(To be completed after analysing the results.)
+## Key Insights
 
----
-
-## Product Manager Takeaway
-
-Products contributing a significant share of total revenue should receive priority in inventory planning, promotional campaigns, and recommendation strategies.
+- Revenue contribution is concentrated among a relatively small number of premium products.
+- Google Zip Hoodie F/C contributes the highest percentage of revenue.
+- Apparel products consistently contribute more revenue per product than lower-priced accessories.
+- Revenue concentration highlights the importance of protecting inventory and visibility for top-performing products.
 
 ---
+
+## Business Recommendations
+
+- Prioritize merchandising of high-contributing products.
+- Allocate marketing budget towards products with the highest revenue contribution.
+- Improve discoverability of premium products through recommendations.
+- Monitor inventory closely for top revenue contributors.---
 
 ## Interview Discussion
 

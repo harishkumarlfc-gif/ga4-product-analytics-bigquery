@@ -35,24 +35,24 @@ Category × Month
 
 ---
 
-## Output
+## Key Insights
 
-(Add Screenshot)
-
----
-
-## Business Insights
-
-(To be completed after analysing the output.)
+- Most categories experienced strong revenue growth during December followed by a decline in January.
+- The revenue pattern suggests seasonality, with December generating the highest sales across multiple categories.
+- Apparel remained the highest revenue category throughout the analysis period.
+- Monitoring category growth helps identify changing customer demand and seasonal purchasing behavior.
 
 ---
 
-## Product Manager Takeaway
+## Business Recommendations
 
-Monitoring monthly category growth helps identify categories gaining or losing momentum. Growing categories may warrant increased marketing or inventory investment, while declining categories should be investigated for pricing, merchandising, or demand issues.
+- Prepare inventory ahead of high-demand periods.
+- Increase marketing activity before seasonal revenue peaks.
+- Investigate categories with consistent revenue decline.
+- Use growth trends to improve demand forecasting and inventory planning.
 
 ---
 
-## Interview Discussion
+## Key Takeaway
 
-This analysis demonstrates time-series analytics using the `LAG()` window function. Compared with self-joins, `LAG()` provides a simpler and more efficient way to compare a category's current performance with its previous month.
+Category growth analysis provides valuable insights into seasonality and changing customer demand, enabling businesses to make proactive merchandising and inventory decisions.

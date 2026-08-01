@@ -1,0 +1,142 @@
+# 📊 Case Study 01 — Prioritizing Revenue Growth
+
+## Business Scenario
+
+Assume you have recently joined the Google Merchandise Store as a Product Analyst.
+
+The Product Manager has shared the latest business dashboard and asked a simple question:
+
+> **"Revenue has been relatively flat. If you could improve only ONE area during the next month, what would you prioritize?"**
+
+Using insights from the dashboard, this case study demonstrates how product decisions can be prioritized using data rather than assumptions.
+
+---
+
+# Step 1 — Understand the Business Goal
+
+The primary business objective is to increase revenue.
+
+Revenue can be increased by improving one or more of the following drivers:
+
+- Increase completed orders
+- Increase Average Order Value (AOV)
+- Increase customer retention
+- Increase website traffic
+
+Since engineering resources are limited, only one initiative can be prioritized initially.
+
+---
+
+# Step 2 — Review Key Business Metrics
+
+| Metric | Value |
+|---------|-------|
+| Revenue | $306,714 |
+| Orders | 4,451 |
+| Buyers | 3,713 |
+| Average Order Value | $68.91 |
+| Products per Order | 4.38 |
+| Checkout Conversion | 38.2% |
+| Checkout Abandonment | 61.8% |
+| Repeat Buyers | 11.85% |
+
+These metrics indicate multiple opportunities for improvement.
+
+---
+
+# Step 3 — Opportunity Assessment
+
+## Opportunity 1 — Increase AOV
+
+Increasing Average Order Value would improve revenue without increasing customer acquisition.
+
+Possible initiatives include:
+
+- Product bundles
+- Cross-selling
+- Free shipping thresholds
+- Premium recommendations
+
+---
+
+## Opportunity 2 — Improve Customer Retention
+
+Only **11.85%** of customers returned for another purchase.
+
+Improving retention could increase Customer Lifetime Value (CLV) and reduce reliance on acquiring new customers.
+
+---
+
+## Opportunity 3 — Reduce Checkout Abandonment ✅
+
+Checkout conversion is only **38.2%**, meaning approximately **61.8%** of users who begin checkout do not complete their purchase.
+
+These users have already demonstrated strong purchase intent.
+
+Improving conversion at this stage can directly increase completed orders without requiring additional marketing spend.
+
+---
+
+# Final Prioritization
+
+## Priority 1
+
+### Reduce Checkout Abandonment
+
+### Why?
+
+Users who reach checkout are the closest to completing a purchase.
+
+Converting existing high-intent users is typically more cost-effective than acquiring additional traffic.
+
+Potential initiatives include:
+
+- Simplifying checkout
+- Reducing form complexity
+- Improving mobile checkout
+- Optimizing payment flow
+
+---
+
+## Priority 2
+
+### Improve Customer Retention
+
+With **88.15%** of customers purchasing only once, retention represents a significant long-term growth opportunity.
+
+Possible initiatives include:
+
+- Personalized email campaigns
+- Loyalty programs
+- Post-purchase engagement
+- Personalized recommendations
+
+---
+
+# Success Metrics
+
+### Primary Metrics
+
+- Checkout → Purchase Conversion Rate
+- Repeat Purchase Rate
+
+### Guardrail Metrics
+
+- Average Order Value (AOV)
+- Revenue per Visitor
+
+### Supporting Metrics
+
+- Checkout Completion Time
+- Email Open Rate
+- Customer Lifetime Value (CLV)
+
+---
+
+# Key Takeaways
+
+Rather than attempting to optimize every business metric simultaneously, Product Analytics helps prioritize opportunities based on expected business impact.
+
+For this dataset, improving checkout conversion represents the highest-priority short-term opportunity because it targets users who have already demonstrated strong purchase intent.
+
+Customer retention remains the second strategic priority for sustainable long-term growth.

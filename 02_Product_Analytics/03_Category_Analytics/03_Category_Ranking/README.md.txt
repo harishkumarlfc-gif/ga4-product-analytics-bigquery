@@ -31,24 +31,24 @@ Aggregated revenue by category and applied the DENSE_RANK() window function to a
 
 ---
 
-## Output
+## Key Insights
 
-(Add Screenshot)
-
----
-
-## Business Insights
-
-(To be completed after analysing the results.)
+- Apparel consistently ranks as the highest revenue-generating category.
+- Revenue declines considerably after the top few categories, indicating unequal category performance.
+- Category rankings help distinguish strategic revenue drivers from lower-impact categories.
+- Ranking provides a simple framework for business prioritization.
 
 ---
 
-## Product Manager Takeaway
+## Business Recommendations
 
-Category rankings provide a quick view of business priorities. Monitoring changes in rankings over time can reveal shifts in customer demand and category performance.
+- Feature top-ranked categories prominently across the website.
+- Increase promotional efforts for high-performing categories.
+- Review lower-ranked categories for pricing or assortment improvements.
+- Continuously monitor ranking changes to identify emerging growth opportunities.
 
 ---
 
-## Interview Discussion
+## Key Takeaway
 
-`DENSE_RANK()` was chosen because categories with equal revenue receive the same rank without leaving gaps in the ranking sequence, making the output easier to interpret in business reports.
+Category rankings simplify decision-making by clearly identifying which product categories contribute the greatest business value.

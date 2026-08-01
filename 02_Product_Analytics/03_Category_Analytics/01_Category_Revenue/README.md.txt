@@ -30,24 +30,24 @@ Aggregated revenue, units sold, and unique products at the category level using 
 
 ---
 
-## Output
+## Key Insights
 
-(Add Screenshot)
-
----
-
-## Business Insights
-
-(To be completed after analysing the output.)
+- Apparel is the dominant revenue-generating category, contributing nearly half of total revenue.
+- New, Bags and Campus Collection are the next highest revenue contributors but significantly trail Apparel.
+- Revenue distribution is highly concentrated, indicating a strong dependence on a few major product categories.
+- Smaller categories contribute only a marginal share of total revenue, presenting opportunities for portfolio optimization.
 
 ---
 
-## Product Manager Takeaway
+## Business Recommendations
 
-High-revenue categories should receive greater attention in inventory planning, marketing campaigns, and merchandising strategies.
+- Prioritize inventory availability for Apparel products.
+- Increase marketing investment for high-performing categories.
+- Cross-sell products from complementary categories to increase basket value.
+- Evaluate underperforming categories for merchandising or assortment improvements.
 
 ---
 
-## Interview Discussion
+## Key Takeaway
 
-Category analysis helps move beyond individual products by evaluating the overall performance of product groups, making it easier to identify strategic business opportunities.
+Category-level analysis helps identify where revenue is generated and enables businesses to prioritize investment towards the categories creating the greatest business impact.

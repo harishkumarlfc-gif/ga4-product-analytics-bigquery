@@ -1,0 +1,177 @@
+# 🚀 Case Study 02 — Increasing Average Order Value Through Product Strategy
+
+## Business Scenario
+
+Following the successful optimization of checkout conversion, the Product Manager wants to identify the next opportunity to increase revenue.
+
+The objective is to grow revenue **without significantly increasing marketing spend or website traffic**.
+
+Using insights from the Product Analytics dashboard, this case study focuses on increasing **Average Order Value (AOV)** through product recommendations and cross-selling.
+
+---
+
+# Step 1 — Business Objective
+
+Revenue can be increased by:
+
+- Acquiring more customers
+- Increasing conversion rate
+- Improving customer retention
+- Increasing Average Order Value (AOV)
+
+Since customer acquisition is often expensive, increasing AOV represents an efficient way to grow revenue using existing traffic.
+
+---
+
+# Step 2 — Dashboard Insights
+
+Product Analytics revealed several important observations.
+
+### Observation 1
+
+Customers purchase an average of:
+
+**4.38 products per order**
+
+This indicates that customers are already comfortable purchasing multiple products within a single transaction.
+
+---
+
+### Observation 2
+
+Top-selling products are primarily low-priced accessories.
+
+Examples include:
+
+- Stickers
+- Pens
+- Notebooks
+
+These products generate high sales volume but relatively lower revenue.
+
+---
+
+### Observation 3
+
+Apparel products generate the highest revenue.
+
+Examples include:
+
+- Google Zip Hoodie
+- Crewneck Sweatshirt
+- Heavyweight Pullover
+- Tech Fleece
+
+Although apparel sells fewer units than accessories, each purchase contributes significantly more revenue.
+
+---
+
+# Business Opportunity
+
+Customers are already purchasing multiple products.
+
+Instead of encouraging customers to buy **more items**, the opportunity is to encourage customers to purchase **higher-value combinations of products**.
+
+This creates an opportunity for intelligent cross-selling.
+
+---
+
+# Proposed Strategy
+
+Recommend inexpensive accessories alongside high-value apparel.
+
+Example recommendations:
+
+Google Zip Hoodie
+
+↓
+
+Customers also bought
+
+- Google Sticker
+- Google Pen
+- Notebook Set
+
+The additional cost is relatively small compared to the primary purchase, making impulse purchases more likely.
+
+---
+
+# Why This Strategy?
+
+This recommendation is supported by the dashboard.
+
+- Apparel generates high revenue.
+- Accessories generate high sales volume.
+- Customers already purchase multiple items per order.
+
+Rather than increasing traffic, the strategy focuses on increasing the value of existing customer baskets.
+
+---
+
+# Experiment Design
+
+## Hypothesis
+
+Displaying relevant accessory recommendations alongside apparel products will increase basket value by encouraging impulse purchases.
+
+---
+
+## Experiment
+
+A/B test personalized cross-sell recommendations on:
+
+- Product Detail Pages
+- Shopping Cart
+- Checkout
+
+Variant A
+
+Current experience
+
+Variant B
+
+Personalized accessory recommendations
+
+---
+
+# Success Metrics
+
+## Primary Metric
+
+- Average Order Value (AOV)
+
+---
+
+## Guardrail Metrics
+
+- Checkout Conversion Rate
+- Revenue per Visitor
+
+---
+
+## Supporting Metrics
+
+- Accessory Attachment Rate
+- Apparel Revenue
+- Products per Order
+
+---
+
+# Expected Business Impact
+
+If successful, this strategy could:
+
+- Increase Average Order Value
+- Increase accessory sales
+- Improve overall revenue
+- Generate additional revenue without increasing customer acquisition costs
+
+---
+
+# Key Learning
+
+Product Analytics is not only about identifying high-performing products.
+
+It is also about understanding how products interact within customer baskets and using those insights to design strategies that improve business performance.
+
+Rather than recommending generic product bundles, this analysis uses purchasing behavior and product performance data to propose targeted cross-selling opportunities supported by dashboard insights.

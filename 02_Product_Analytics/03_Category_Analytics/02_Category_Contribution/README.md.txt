@@ -31,24 +31,24 @@ Calculated total revenue for each category and used a window function to compute
 
 ---
 
-## Output
+## Key Insights
 
-(Add Screenshot)
-
----
-
-## Business Insights
-
-(To be completed after analysing the results.)
+- Apparel contributes approximately 47% of total revenue, making it the largest revenue driver.
+- The remaining revenue is distributed across multiple smaller categories.
+- A relatively small number of categories account for the majority of business revenue.
+- Revenue concentration suggests that optimizing key categories can produce a significant business impact.
 
 ---
 
-## Product Manager Takeaway
+## Business Recommendations
 
-A small number of categories often contribute a large share of revenue. These categories should receive higher strategic focus while lower-contributing categories can be evaluated for optimization or expansion opportunities.
+- Prioritize promotional campaigns for high-contributing categories.
+- Ensure consistent stock availability for major revenue drivers.
+- Develop cross-category recommendations around high-performing categories.
+- Monitor revenue contribution trends to detect shifts in customer demand.
 
 ---
 
-## Interview Discussion
+## Key Takeaway
 
-Contribution analysis is more informative than absolute revenue because it normalizes category performance and highlights each category's relative importance to the business.
+Revenue contribution provides a clearer understanding of category importance than revenue alone by showing each category's relative impact on total business performance.

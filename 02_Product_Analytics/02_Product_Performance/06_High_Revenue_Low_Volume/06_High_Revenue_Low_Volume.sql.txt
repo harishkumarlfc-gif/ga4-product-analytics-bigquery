@@ -1,44 +1,95 @@
 WITH product_master AS (
 
--- Product Master CTE
+    SELECT *
+    FROM (
 
+        SELECT
+            PARSE_DATE('%Y%m%d', event_date) AS event_date,
+            event_timestamp,
+            user_pseudo_id,
+            ecommerce.transaction_id,
+
+            (
+                SELECT ANY_VALUE(ep.value.string_value)
+                FROM UNNEST(event_params) AS ep
+                WHERE ep.key = 'coupon'
+            ) AS coupon,
+
+            traffic_source.source,
+            traffic_source.medium,
+            device.category AS device_category,
+            geo.country,
+
+            items.item_id,
+            items.item_name,
+            items.item_brand,
+            items.item_category,
+
+            items.quantity,
+            items.price,
+            items.item_revenue,
+
+            ROW_NUMBER() OVER (
+                PARTITION BY ecommerce.transaction_id, items.item_id
+                ORDER BY event_timestamp
+            ) AS rn
+
+        FROM
+            `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`,
+            UNNEST(items) AS items
+
+        WHERE
+            event_name = 'purchase'
+            AND ecommerce.transaction_id IS NOT NULL
+            AND ecommerce.transaction_id != '(not set)'
+    )
+
+    WHERE rn = 1
 ),
 
-product_summary AS (
+product_level AS (
 
-SELECT
+    SELECT
+        item_name,
+        ANY_VALUE(item_category) AS item_category,
+        SUM(quantity) AS units_sold,
+        ROUND(SUM(item_revenue), 2) AS total_revenue,
+        COUNT(DISTINCT transaction_id) AS total_orders
 
-    item_id,
+    FROM product_master
 
-    ANY_VALUE(item_name) AS item_name,
+    WHERE item_name IS NOT NULL
 
-    SUM(quantity) AS units_sold,
+    GROUP BY item_name
+),
 
-    ROUND(SUM(item_revenue),2) AS total_revenue
+benchmarks AS (
 
-FROM product_master
-
-GROUP BY item_id
-
+    SELECT
+        AVG(total_revenue) AS avg_revenue,
+        AVG(units_sold) AS avg_units
+    FROM product_level
 )
 
 SELECT
-
-    item_id,
-    item_name,
-    units_sold,
-    total_revenue,
+    p.item_name,
+    p.item_category,
+    p.units_sold,
+    p.total_orders,
+    p.total_revenue,
 
     ROUND(
-        SAFE_DIVIDE(total_revenue, units_sold),
+        SAFE_DIVIDE(p.total_revenue, p.units_sold),
         2
     ) AS revenue_per_unit
 
-FROM product_summary
+FROM product_level p
+CROSS JOIN benchmarks b
+
+WHERE
+    p.total_revenue > b.avg_revenue
+    AND p.units_sold < b.avg_units
 
 ORDER BY
-
     revenue_per_unit DESC,
-    total_revenue DESC
-
-LIMIT 20;
+    total_revenue DESC;

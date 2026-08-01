@@ -30,25 +30,25 @@ Product Level
 
 Calculated total revenue for each product and applied three different ranking window functions.
 
----
 
-## Output
-
-(Add Screenshot)
 
 ---
 
-## Business Insights
+## Key Insights
 
-(To be written after observing the output.)
-
----
-
-## Product Manager Takeaway
-
-Ranking enables quick identification of high-performing products for promotions, inventory planning, and merchandising.
+- Revenue rankings clearly distinguish premium products from lower-performing products.
+- Hoodie and sweatshirt variants consistently occupy the highest positions.
+- Product ranking provides a straightforward method for identifying products requiring promotional support or inventory planning.
+- Revenue rankings can also support pricing and merchandising decisions.
 
 ---
+
+## Business Recommendations
+
+- Feature top-ranked products on high-traffic pages.
+- Review lower-ranked products for pricing or promotional opportunities.
+- Continuously monitor ranking changes to detect emerging trends.
+- Use rankings to prioritize marketing campaigns.---
 
 ## Interview Discussion
 
