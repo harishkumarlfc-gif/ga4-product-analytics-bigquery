@@ -1,0 +1,22 @@
+-- ==========================================
+-- TRANSACTION ID VALIDATION
+-- Validate Purchase Transaction IDs
+-- ==========================================
+
+SELECT
+
+COUNT(*) AS total_purchase_rows,
+
+COUNTIF(ecommerce.transaction_id IS NULL) AS null_transaction_ids,
+
+COUNTIF(ecommerce.transaction_id='(not set)') AS not_set_transaction_ids,
+
+COUNTIF(
+ecommerce.transaction_id IS NOT NULL
+AND ecommerce.transaction_id!='(not set)'
+) AS valid_transaction_ids
+
+FROM
+`bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+
+WHERE event_name='purchase';

@@ -1,9 +1,3 @@
--- ==========================================
--- GRAIN VALIDATION
--- Expected Grain:
--- One Row = One Product Purchased in One Transaction
--- ==========================================
-
 WITH product_master AS (
 
 SELECT
@@ -11,6 +5,9 @@ SELECT
 e.ecommerce.transaction_id,
 
 i.item_id,
+i.price,
+i.quantity,
+i.item_revenue,
 
 ROW_NUMBER() OVER(
 
@@ -38,13 +35,11 @@ AND e.ecommerce.transaction_id!='(not set)'
 
 SELECT
 
-COUNT(*) AS total_rows,
+ROUND(SUM(item_revenue),2) AS total_item_revenue,
 
-COUNT(DISTINCT CONCAT(transaction_id,item_id)) AS expected_rows,
+ROUND(SUM(price*quantity),2) AS total_price_x_quantity,
 
-COUNT(*)-
-COUNT(DISTINCT CONCAT(transaction_id,item_id))
-AS duplicate_rows
+ROUND(SUM(price*quantity)-SUM(item_revenue),2) AS revenue_difference
 
 FROM product_master
 
