@@ -1,6 +1,6 @@
 # GA4 E-Commerce Product & Conversion Analytics
 
-> **End-to-end Product Analytics case study using GA4 ecommerce event data in BigQuery — from raw event validation to business recommendations and experiment design.**
+> **End-to-end Product Analytics case study using GA4 ecommerce event data in BigQuery — from raw event validation to business analysis, product hypotheses and experiment design.**
 
 [![BigQuery](https://img.shields.io/badge/SQL-BigQuery-4285F4?logo=googlebigquery&logoColor=white)](https://cloud.google.com/bigquery) [![GA4](https://img.shields.io/badge/Analytics-GA4-FF6F00?logo=googleanalytics&logoColor=white)](https://analytics.google.com/) [![Power%20BI](https://img.shields.io/badge/BI-Power%20BI-F2C811?logo=powerbi&logoColor=111111)](https://powerbi.microsoft.com/) [![Product%20Analytics](https://img.shields.io/badge/Focus-Product%20Analytics-168A83)](#-product-sense)
 
@@ -256,7 +256,7 @@ Price × Quantity    = 306,924
 Difference          = 210
 ```
 
-The repository treats `item_revenue` as the authoritative revenue measure and documents the small difference instead of silently ignoring it.
+The repository treats `item_revenue` as the authoritative revenue measure and documents the discrepancy rather than silently ignoring it.
 
 Quantity and price validation found:
 
@@ -802,7 +802,7 @@ A proposed test uses personalized post-purchase communication for first-time buy
 
 **File:** [`06_Executive_Recommendations.md.txt`](./07_Product_Sense/06_Executive_Recommendations.md.txt)
 
-The project translates the analysis into five proposed opportunities:
+The project translates the analysis into five proposed, testable opportunities:
 
 | Opportunity | Primary metric | Guardrail / support |
 |---|---|---|
